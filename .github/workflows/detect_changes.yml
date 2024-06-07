@@ -1,0 +1,21 @@
+name: Detect Changes
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  detect-changes:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Print information
+        run: |
+          echo "[${{ github.event_name }}] : $(date +'%Y-%m-%d %H:%M:%S') : ${GITHUB_REF#refs/heads/} : ${GITHUB_ACTOR} : ${GITHUB_SHA} : $(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | wc -l) files changed"

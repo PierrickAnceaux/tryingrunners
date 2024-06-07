@@ -5,3 +5,4 @@ This project has been created for the sole purpose of testing the self-hosted ru
 <h2>tests</h2>
 
 - test A : detect-changes
+- fix 1, fix 2

@@ -18,6 +18,6 @@ jobs:
 
       - name: Print information
         run: |
-          echo [${{ github.event_name }}] detected : 
-          echo $(date +'%Y-%m-%d %H:%M:%S') on ${GITHUB_REF#refs/heads/} by ${GITHUB_ACTOR} 
-          echo commit ${GITHUB_SHA}(: $(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | wc -l) files changed)"
+          echo "[${{ github.event_name }}] detected: "
+          echo "$(date +'%Y-%m-%d %H:%M:%S') on ${GITHUB_REF#refs/heads/} by ${GITHUB_ACTOR}"
+          echo "commit ${GITHUB_SHA} ($(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | wc -l) files changed)"
